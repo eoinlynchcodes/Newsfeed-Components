@@ -34,7 +34,11 @@ const listItem = document.createElement('li');
 listDiv.append(unorderedList);
 unorderedList.append(listItem);
 
-
+menuItems.forEach(data => {
+  connectionToHTML.append(
+    printMenu(data)
+    );
+});
 
 return listDiv
 }
@@ -42,12 +46,12 @@ return listDiv
 const connectionToHTML = document.querySelector(".menu-button");
 
 connectionToHTML.addEventListener('click', event => {
-  
-  return listDiv
+  console.log('Clicked the menu thing.');
+  listDiv.classList.toggle('menu--open');
 })
 
-menuItems.forEach(data => {
-  connectionToHTML.append(
-    printMenu(data)
-    );
-});
+// menuItems.forEach(data => {
+//   connectionToHTML.append(
+//     printMenu(data)
+//     );
+// });
