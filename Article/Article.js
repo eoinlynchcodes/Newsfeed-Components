@@ -110,6 +110,7 @@ function renderData(
   secondParagraph,
   thirdParagraph
 ) {
+
   const box = document.createElement("div");
   const articleTitle = document.createElement("h2");
   const articleDate = document.createElement("p");
@@ -117,6 +118,8 @@ function renderData(
   const paragraphTwo = document.createElement("p");
   const paragraphThree = document.createElement("p");
   const buttonElement = document.createElement("span");
+
+  buttonElement.textContent = 'Expand';
 
   box.append(articleTitle);
   box.append(articleTitle);
@@ -126,7 +129,7 @@ function renderData(
   box.append(paragraphThree);
   box.append(buttonElement);
 
-  box.classList.add("articles");
+  box.classList.add('article');
   articleDate.classList.add('date');
   buttonElement.classList.add('expandButton');
 
@@ -136,8 +139,14 @@ function renderData(
   paragraphTwo.textContent = secondParagraph;
   paragraphThree.textContent = thirdParagraph;
 
+  buttonElement.addEventListener('click', event => {
+      console.log('clicked');
+      box.classList.toggle('article-open');
+  });
+
   return box;
 }
+
 
 const connection = document.querySelector('.articles');
 
