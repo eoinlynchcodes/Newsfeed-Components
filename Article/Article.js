@@ -119,8 +119,6 @@ function renderData(
   const paragraphThree = document.createElement("p");
   const buttonElement = document.createElement("span");
 
-  buttonElement.textContent = 'Expand';
-
   box.append(articleTitle);
   box.append(articleTitle);
   box.append(articleDate);
@@ -132,21 +130,20 @@ function renderData(
   box.classList.add('article');
   articleDate.classList.add('date');
   buttonElement.classList.add('expandButton');
+  buttonElement.addEventListener('click', event => {
+    console.log('clicked');
+    box.classList.toggle('article-open');
+});
 
   articleTitle.textContent = title;
   articleDate.textContent = date;
   paragraphOne.textContent = firstParagraph;
   paragraphTwo.textContent = secondParagraph;
   paragraphThree.textContent = thirdParagraph;
-
-  buttonElement.addEventListener('click', event => {
-      console.log('clicked');
-      box.classList.toggle('article-open');
-  });
+  buttonElement.textContent = 'Open/Close';
 
   return box;
 }
-
 
 const connection = document.querySelector('.articles');
 

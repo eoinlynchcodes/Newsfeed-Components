@@ -29,29 +29,31 @@ function printMenu(arrayName){
 
 const listDiv = document.createElement('div');
 const unorderedList = document.createElement('ul');
-const listItem = document.createElement('li');
+
 
 listDiv.append(unorderedList);
-unorderedList.append(listItem);
 
-menuItems.forEach(data => {
-  connectionToHTML.append(
-    printMenu(data)
-    );
+arrayName.forEach(data => {
+  const listItem = document.createElement('li');
+  listItem.textContent = data;
+  unorderedList.append(listItem);
+});
+
+const menuButton = document.querySelector('.menu-button');
+
+listDiv.classList.add('menu');
+
+menuButton.addEventListener('click', event => {
+  console.log('Clicked the menu thing.');
+  listDiv.classList.toggle('menu--open');
 });
 
 return listDiv
 }
 
-const connectionToHTML = document.querySelector(".menu-button");
+const connector = document.querySelector(".header");
+connector.append(printMenu(menuItems));
 
-connectionToHTML.addEventListener('click', event => {
-  console.log('Clicked the menu thing.');
-  listDiv.classList.toggle('menu--open');
-})
+const menuButton = document.querySelector('.menu-button');
 
-// menuItems.forEach(data => {
-//   connectionToHTML.append(
-//     printMenu(data)
-//     );
-// });
+const menuBar = printMenu(menuItems);
